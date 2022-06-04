@@ -6,7 +6,7 @@ import { auth } from "../config/firebase";
 
 GoogleSignin.configure({
   webClientId:
-    "345972701709-c8s2a73j3de99a70gas8i9500g91qt1p.apps.googleusercontent.com",
+    Constants.manifest.extra.webClientId,
   client_type: 3,
   scopes: ["profile", "email"],
 });
