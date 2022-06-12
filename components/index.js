@@ -1,17 +1,6 @@
-import { TextInput } from './TextInput';
-import { View } from './View';
-import { Logo } from './Logo';
-import { Icon } from './Icon';
-import { Button } from './Button';
-import { FormErrorMessage } from './FormErrorMessage';
-import { LoadingIndicator } from './LoadingIndicator';
+import { LoadingIndicator } from "./LoadingIndicator";
+import { NavBar } from "./NavBar";
+import { Header } from "./Header";
+import { ProfileModal } from "./ProfileModal";
 
-export {
-  View,
-  TextInput,
-  Logo,
-  Icon,
-  Button,
-  FormErrorMessage,
-  LoadingIndicator
-};
+export { LoadingIndicator, NavBar, Header, ProfileModal };

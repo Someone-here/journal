@@ -1,12 +1,15 @@
-import { Text, View, Button, StyleSheet } from "react-native";
-import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import { Text, View, Image, StyleSheet } from "react-native";
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+} from "@react-native-google-signin/google-signin";
 import Constants from "expo-constants";
 import * as Auth from "firebase/auth";
 import { auth } from "../config/firebase";
+import { Theme, balsamiqSans, inter } from "../config";
 
 GoogleSignin.configure({
-  webClientId:
-    "345972701709-c8s2a73j3de99a70gas8i9500g91qt1p.apps.googleusercontent.com",
+  webClientId: Constants.manifest.extra.webClientId,
   client_type: 3,
   scopes: ["profile", "email"],
 });
@@ -20,15 +23,39 @@ async function onGoogleButtonPress() {
 export function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to Journal App!</Text>
-      <Button
-        title="Google Sign-In"
-        onPress={() =>
-          onGoogleButtonPress()
-            .then(() => console.log("Signed in with Google!"))
-            .catch((err) => console.log(Object.entries(err)))
-        }
-      />
+      <View style={styles.up}>
+        <Image
+          source={require("../assets/Group.png")}
+          style={{
+            transform: [{ scale: 0.3 }],
+          }}
+        />
+      </View>
+      <View style={styles.down}>
+        <Text style={inter.h3}>Welcome to</Text>
+        <Text style={balsamiqSans[48]}>Open Journal</Text>
+        <Text
+          style={{
+            ...inter.bodyBase,
+            paddingHorizontal: 40,
+            textAlign: "center",
+          }}
+        >
+          To keep the best memories, and lead a prodcutive lifestyle.
+        </Text>
+        <View style={styles.auth}>
+          <GoogleSigninButton
+            style={{ width: 250, height: 56, marginBottom: 16 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={onGoogleButtonPress}
+          />
+          <Text style={{ ...inter.label, paddingHorizontal: 80 }}>
+            Let us link to your google Account to sync all the memories, photos,
+            notes and tasks.
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -38,12 +65,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF",
+    backgroundColor: Theme.primary,
+    flexDirection: "column",
+    color: Theme.text,
   },
-  welcome: {
-    fontSize: 30,
-    textAlign: "center",
-    margin: 10,
-    fontWeight: "bold",
+  auth: {
+    marginTop: 70,
+    display: "flex",
+    alignItems: "center",
+  },
+  up: {
+    height: "60%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  down: {
+    height: "40%",
+    width: "100%",
+    alignItems: "center",
   },
 });

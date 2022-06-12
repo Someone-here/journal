@@ -1,16 +1,18 @@
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { RootNavigator } from './navigation/RootNavigator';
-import { AuthenticatedUserProvider } from './providers';
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { RootNavigator } from "./navigation/RootNavigator";
+import { AuthenticatedUserProvider } from "./providers";
+import { StatusBar } from "expo-status-bar";
 
 const App = () => {
   return (
-    <AuthenticatedUserProvider>
-      <SafeAreaProvider>
-        <RootNavigator />
-      </SafeAreaProvider>
-    </AuthenticatedUserProvider>
+    <>
+      <AuthenticatedUserProvider>
+        <SafeAreaProvider>
+          <RootNavigator />
+        </SafeAreaProvider>
+      </AuthenticatedUserProvider>
+      <StatusBar style="dark" />
+    </>
   );
 };
 

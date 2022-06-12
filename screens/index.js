@@ -1,13 +1,13 @@
-import { LoginScreen } from "./LoginScreen";
-import { SignupScreen } from "./SignupScreen";
-import { HomeScreen } from "./HomeScreen";
-import { ForgotPasswordScreen } from "./ForgotPasswordScreen";
+import { TimelineScreen } from "./TimelineScreen";
 import { WelcomeScreen } from "./WelcomeScreen";
+import { GoalScreen } from "./GoalScreen";
+import { NoteScreen } from "./NoteScreen";
+import { ScheduleScreen } from "./ScheduleScreen";
 
 export {
-  LoginScreen,
-  SignupScreen,
-  HomeScreen,
-  ForgotPasswordScreen,
+  TimelineScreen,
+  GoalScreen,
   WelcomeScreen,
+  NoteScreen,
+  ScheduleScreen,
 };

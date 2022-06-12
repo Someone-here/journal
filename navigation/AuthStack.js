@@ -6,7 +6,12 @@ const Stack = createStackNavigator();
 
 export const AuthStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Welcome">
+    <Stack.Navigator
+      initialRouteName="Welcome"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
     </Stack.Navigator>
   );

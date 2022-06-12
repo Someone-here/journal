@@ -1,14 +1,24 @@
-import * as React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  GoalScreen,
+  TimelineScreen,
+  NoteScreen,
+  ScheduleScreen,
+} from "../screens";
+import { NavBar } from "../components";
 
-import { HomeScreen } from '../screens';
+const Tab = createBottomTabNavigator();
 
-const Stack = createStackNavigator();
-
-export const AppStack = () => {
+export function AppStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='Home' component={HomeScreen} />
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={{ headerShown: false }}
+      tabBar={(props) => <NavBar {...props} />}
+    >
+      <Tab.Screen name="Timeline" component={TimelineScreen} />
+      <Tab.Screen name="Goals" component={GoalScreen} />
+      <Tab.Screen name="Notes" component={NoteScreen} />
+      <Tab.Screen name="Schedule" component={ScheduleScreen} />
+    </Tab.Navigator>
   );
-};
+}

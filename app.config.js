@@ -9,9 +9,8 @@ export default {
     orientation: "portrait",
     icon: "./assets/flame.png",
     splash: {
-      image: "./assets/splash.png",
-      resizeMode: "cover",
-      backgroundColor: "#F57C00",
+      image: "./assets/Group.png",
+      backgroundColor: "#CFE3FD",
     },
     updates: {
       fallbackToCacheTimeout: 0,
@@ -28,6 +27,7 @@ export default {
       storageBucket: process.env.STORAGE_BUCKET,
       messagingSenderId: process.env.MESSAGING_SENDER_ID,
       appId: process.env.APP_ID,
+      webClientId: process.env.WEB_CLIENT_ID,
     },
     android: {
       package: "com.journalapp",

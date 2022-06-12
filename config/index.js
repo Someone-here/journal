@@ -1,5 +1,6 @@
-import { Images } from './images';
-import { Colors } from './theme';
-import { auth } from './firebase';
+import { Images } from "./images";
+import Theme from "./theme";
+import { auth } from "./firebase";
+import { balsamiqSans, inter } from "./typography";
 
-export { Images, Colors, auth };
+export { Images, Theme, auth, balsamiqSans, inter };
