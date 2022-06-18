@@ -3,7 +3,7 @@ import { Theme } from "../config";
 import { FontAwesome } from "@expo/vector-icons";
 
 const icons = {
-  Timeline: "list-alt",
+  Memories: "list-alt",
   Goals: "bullseye",
   Schedule: "calendar",
   Notes: "sticky-note-o",
@@ -43,7 +43,7 @@ export function NavBar({ state, descriptors, navigation }) {
           });
         };
 
-        return (
+        return icons[route.name] ? (
           <TouchableOpacity
             key={index}
             accessibilityRole="button"
@@ -69,7 +69,7 @@ export function NavBar({ state, descriptors, navigation }) {
             </View>
             <Text style={styles.text}>{label}</Text>
           </TouchableOpacity>
-        );
+        ) : null;
       })}
     </View>
   );
@@ -84,6 +84,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
+    elevation: 20,
+    bottom: 0,
   },
   btn: {
     flex: 1,
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   link: {
-    borderRadius: 100,
+    borderRadius: 50,
     height: 36,
     width: 66,
     marginBottom: 4,

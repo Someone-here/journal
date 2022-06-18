@@ -11,7 +11,10 @@ import { Theme, balsamiqSans, inter } from "../config";
 GoogleSignin.configure({
   webClientId: Constants.manifest.extra.webClientId,
   client_type: 3,
-  scopes: ["profile", "email"],
+  scopes: [
+    "https://www.googleapis.com/auth/tasks",
+    "https://www.googleapis.com/auth/drive",
+  ],
 });
 
 async function onGoogleButtonPress() {
@@ -48,7 +51,7 @@ export function WelcomeScreen({ navigation }) {
             style={{ width: 250, height: 56, marginBottom: 16 }}
             size={GoogleSigninButton.Size.Wide}
             color={GoogleSigninButton.Color.Dark}
-            onPress={onGoogleButtonPress}
+            onPress={() => onGoogleButtonPress().catch((e) => console.log(e))}
           />
           <Text style={{ ...inter.label, paddingHorizontal: 80 }}>
             Let us link to your google Account to sync all the memories, photos,

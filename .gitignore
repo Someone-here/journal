@@ -1,7 +1,6 @@
 android/*
 .expo-shared/*
-GoogleService-Info.plist
-google-services.json
+
 
 node_modules/**/*
 .expo/*

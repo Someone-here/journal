@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { onAuthStateChanged } from "firebase/auth";
-import { AuthStack } from "./AuthStack";
 import { AppStack } from "./AppStack";
 import { AuthenticatedUserContext } from "../providers";
 import { LoadingIndicator } from "../components";
@@ -12,6 +11,7 @@ import {
   BalsamiqSans_400Regular,
   BalsamiqSans_700Bold,
 } from "@expo-google-fonts/balsamiq-sans";
+import { WelcomeScreen } from "../screens";
 
 export const RootNavigator = () => {
   const { user, setUser } = useContext(AuthenticatedUserContext);
@@ -25,7 +25,6 @@ export const RootNavigator = () => {
   });
 
   useEffect(() => {
-    // onAuthStateChanged returns an unsubscriber
     const unsubscribeAuthStateChanged = onAuthStateChanged(
       auth,
       (authenticatedUser) => {
@@ -34,8 +33,6 @@ export const RootNavigator = () => {
       }
     );
     if (!fontsLoaded) setIsLoading(true);
-
-    // unsubscribe auth listener on unmount
     return unsubscribeAuthStateChanged;
   }, [user]);
 
@@ -45,7 +42,7 @@ export const RootNavigator = () => {
 
   return (
     <NavigationContainer>
-      {user ? <AppStack /> : <AuthStack />}
+      {user ? <AppStack /> : <WelcomeScreen />}
     </NavigationContainer>
   );
 };

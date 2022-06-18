@@ -18,7 +18,7 @@ export default {
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,
-      googleServicesFile: "./GoogleService-Info.plist",
+      googleServicesFile: "./googleService-Info.plist",
     },
     extra: {
       apiKey: process.env.API_KEY,
@@ -31,7 +31,7 @@ export default {
     },
     android: {
       package: "com.journalapp",
-      googleServicesFile: "./Google-services.json",
+      googleServicesFile: "./google-services.json",
     },
   },
 };
