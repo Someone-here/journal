@@ -3,9 +3,9 @@ import "dotenv/config";
 export default {
   expo: {
     name: "Jounal",
-    slug: "journalApp",
+    slug: "journal",
     platforms: ["ios", "android"],
-    version: "0.15.0",
+    version: "1.0",
     orientation: "portrait",
     icon: "./assets/flame.png",
     splash: {

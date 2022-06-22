@@ -11,10 +11,7 @@ import { Theme, balsamiqSans, inter } from "../config";
 GoogleSignin.configure({
   webClientId: Constants.manifest.extra.webClientId,
   client_type: 3,
-  scopes: [
-    "https://www.googleapis.com/auth/tasks",
-    "https://www.googleapis.com/auth/drive",
-  ],
+  scopes: ["https://www.googleapis.com/auth/tasks"],
 });
 
 async function onGoogleButtonPress() {
