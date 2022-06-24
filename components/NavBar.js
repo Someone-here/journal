@@ -55,11 +55,12 @@ export function NavBar({ state, descriptors, navigation }) {
             style={styles.btn}
           >
             <View
-              style={
+              style={[
+                styles.link,
                 isFocused
-                  ? { ...styles.link, backgroundColor: Theme.accent }
-                  : { ...styles.link }
-              }
+                  ? { backgroundColor: Theme.accent, borderRadius: 50 }
+                  : null,
+              ]}
             >
               <FontAwesome
                 name={icons[route.name]}

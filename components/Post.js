@@ -1,39 +1,35 @@
 import Dash from "react-native-dash";
-import { Card, Paragraph } from "react-native-paper";
+import { Card } from "./Card";
 import { View, StyleSheet } from "react-native";
 import { Date } from "./Date";
+import { useRef, useEffect } from "react";
 
-export function Post({ title, content, date, id, img }) {
+export function Post({ title, description, date, image, id }) {
   return (
-    <View style={styles.post}>
+    <View style={[styles.post, image ? { height: 420 } : { height: 200 }]}>
       <View style={styles.date}>
-        <Date date="11" />
+        <Date date={date} />
         <Dash
           style={{
-            marginTop: 8,
+            marginTop: "10%",
             width: 1,
-            height: 100,
+            height: "80%",
             flexDirection: "column",
           }}
+          dashGap={10}
+          dashLength={10}
+          dashThickness={2}
+          dashColor={Theme.accent}
         />
       </View>
       <View style={styles.postCard}>
-        <Card style={{ borderRadius: 12, overflow: "hidden" }}>
-          <Card.Cover
-            source={{ uri: "https://picsum.photos/300/200" }}
-            style={{ padding: 12 }}
-          />
-          <Card.Title title="Post Title" />
-          <Card.Content>
-            <Paragraph>
-              lorem ipsum lorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem
-              ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem
-              ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsum
-              lorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsum lorem
-              ipsum lorem ipsumlorem ipsumlorem ipsum lorem ipsum lorem ipsum
-            </Paragraph>
-          </Card.Content>
-        </Card>
+        <Card
+          title={title}
+          description={description}
+          image={image}
+          date={date}
+          id={id}
+        />
       </View>
     </View>
   );
@@ -46,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   date: {
-    height: "auto",
+    height: "100%",
     paddingLeft: 10,
     alignItems: "center",
   },

@@ -1,27 +1,47 @@
 import { View, StyleSheet, ScrollView } from "react-native";
 import { balsamiqSans, Theme } from "../config";
-import { Post, Header } from "../components";
-import { db } from "../config";
-import * as Firestore from "firebase/firestore";
-import { auth } from "../config";
-import { useState } from "react";
+import { Post, Header, Fab } from "../components";
 
 export function MemoriesScreen({ navigation }) {
-  // get the user's posts from the database according to the user's id
-  const [posts, setPosts] = useState([]);
-  const userId = auth.currentUser.uid;
-  const postsRef = Firestore.collection(db, "users", "default", "posts");
-  Firestore.getDocs(postsRef)
-    .then((snapshot) => setPosts(snapshot.docs.map((doc) => doc.data())))
-    .catch((e) => console.log(e));
+  const data = [
+    {
+      id: "a",
+      title: "Trip to the Moon",
+      description:
+        "The trip was really fun and comp of having fun, having fun, fun and having fun.",
+      date: new Date(),
+      image: {
+        uri: "https://picsum.photos/1920/1080?image=1021",
+      },
+    },
+    {
+      id: "b",
+      title: "Seeing the Nothern Lights in Norway",
+      description:
+        "The trip was really fun and comp of having fun, having fun, fun and having fun.",
+      date: new Date(),
+      image: {
+        uri: "https://picsum.photos/1920/1080?image=1022",
+      },
+    },
+    {
+      id: "c",
+      title: "WOOOOW",
+      description:
+        "The trip was really fun and comp of having fun, having fun, fun and having fun.",
+      date: new Date(),
+    },
+  ];
 
   return (
     <View style={styles.container}>
-      <Header />
       <ScrollView style={styles.body}>
-        <Post />
-        <Post />
+        <Header />
+        {data.map((postData) => (
+          <Post {...postData} key={postData.id} />
+        ))}
       </ScrollView>
+      <Fab icon="plus">Memory</Fab>
     </View>
   );
 }

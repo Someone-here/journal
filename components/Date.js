@@ -2,6 +2,20 @@ import { View, Text, StyleSheet } from "react-native";
 import { balsamiqSans, Theme } from "../config";
 
 export function Date({ date }) {
+  const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+  ];
   return (
     <View style={styles.container}>
       <View style={styles.date}>
@@ -12,11 +26,13 @@ export function Date({ date }) {
             alignItems: "baseline",
           }}
         >
-          <Text style={[balsamiqSans[32], { color: "white" }]}>{date}</Text>
+          <Text style={[balsamiqSans[24], { color: "white" }]}>
+            {date.getDate()}
+          </Text>
           <Text style={[balsamiqSans[18], { color: "white" }]}>th</Text>
         </View>
       </View>
-      <Text style={balsamiqSans[24]}>March</Text>
+      <Text style={balsamiqSans[24]}>{months[date.getMonth()]}</Text>
     </View>
   );
 }

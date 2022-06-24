@@ -1,10 +1,10 @@
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Pressable, View, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { balsamiqSans, Theme } from "../config";
 
 export function Fab({ icon, children, onPress }) {
   return (
-    <Pressable onPress={onPress} style={styles.root}>
+    <TouchableOpacity onPress={onPress} style={styles.root}>
       <View style={styles.container}>
         <View style={styles.icon}>
           <FontAwesome5 name={icon} size={20} color={"white"} />
@@ -13,7 +13,7 @@ export function Fab({ icon, children, onPress }) {
           <Text style={[balsamiqSans[18], { color: "white" }]}>{children}</Text>
         </View>
       </View>
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 

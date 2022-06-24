@@ -57,6 +57,11 @@ export const inter = StyleSheet.create({
     fontSize: 18,
     lineHeight: 22,
   },
+  normal: {
+    fontFamily: "Inter_400Regular",
+    fontSize: 20,
+    lineHeight: 22,
+  },
   bodyBase: {
     fontFamily: "Inter_400Regular",
     fontSize: 16,
